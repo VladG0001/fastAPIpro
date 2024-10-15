@@ -3,7 +3,7 @@ from main import app
 
 client = TestClient(app)
 
-# Тести для роута /info-url
+
 def test_infourl():
     url = "https://jsonplaceholder.typicode.com/"
     resp = client.get("/info-url/", params={"url": url})
@@ -16,7 +16,7 @@ def test_error_infourl():
     resp = client.get("/info-url/", params={"url": url})
     assert resp.status_code == 422
 
-# Тести для роута /wiki/data_program
+
 def test_wiki_data_python():
     resp = client.get("/wiki/data_program", params={"language": "Python"})
     assert resp.status_code == 200
